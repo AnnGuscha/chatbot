@@ -31,6 +31,15 @@
         </keywords>
     </State>
 
+    <State id="1">
+        <message>Сообщение</message>
+        <keywords>
+            <keyword target="1">Ключевое слово 1</keyword>
+            ...
+            <keyword target="N">Ключевое слово N</keyword>
+        </keywords>
+    </State>
+
     <State id="13">
         <message>Why, what is wrong?</message>
         <keywords>

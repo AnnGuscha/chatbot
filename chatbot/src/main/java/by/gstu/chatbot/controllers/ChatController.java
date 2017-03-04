@@ -11,6 +11,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.async.DeferredResult;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -59,8 +63,7 @@ public class ChatController {
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
-    public void postMessage(@RequestParam String message) {
-
+    public void postMessage(@RequestParam String message, HttpServletResponse rsp) {
         this.chatRepository.addMessage(message);
         String userMessage = message.substring(message.indexOf(']') + 1);
         String response = bot.send(userMessage);
@@ -74,6 +77,44 @@ public class ChatController {
             List<String> messages = this.chatRepository.getMessages(entry.getValue());
             entry.getKey().setResult(messages);
         }
+
+        try {
+            PrintWriter out = rsp.getWriter();
+            out.println(response);
+            out.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
+//    @RequestMapping(value = "/post", method = RequestMethod.POST)
+//    public void postMessageGET(@RequestParam String message, HttpServletRequest request, HttpServletResponse response) {
+//        try {
+//            PrintWriter out = response.getWriter();
+//            out.println("Hello, world!" + message);
+//            out.close();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        //return "some string";
+////        this.chatRepository.addMessage(message);
+////        String userMessage = message.substring(message.indexOf(']') + 1);
+////        String response = bot.send(userMessage);
+////        if (response.length() != 0) {
+////            this.chatRepository.addMessage("[bot]" + response);
+////        } else {
+////            this.chatRepository.addMessage("[bot]" + bot.getMessage());
+////        }
+////
+////        for (Entry<DeferredResult<List<String>>, Integer> entry : this.chatRequests.entrySet()) {
+////            List<String> messages = this.chatRepository.getMessages(entry.getValue());
+////            entry.getKey().setResult(messages);
+////        }
+////        return response;
+//    }
+
+    @RequestMapping("/reload")
+    public void reload() {
+        bot.setParser(new DataParser());
+    }
 }

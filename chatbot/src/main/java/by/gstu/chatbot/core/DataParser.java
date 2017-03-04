@@ -32,7 +32,7 @@ public class DataParser {
             DocumentBuilder db = dbf.newDocumentBuilder();
 
             //parse using builder to get DOM representation of the XML file
-            dom = db.parse("E:\\data.xml");
+            dom = db.parse(Config.SOURCE_FILE);
 
             // Load configuration and states from the XML file
             loadConfiguration();

@@ -21,6 +21,10 @@ public class Bot {
         this.parser = parser;
     }
 
+    public void setParser(DataParser parser) {
+        this.parser = parser;
+    }
+
     // get current state message
     public String getMessage() {
         State state = parser.getState(level);
