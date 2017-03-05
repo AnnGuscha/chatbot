@@ -2,3 +2,4 @@ chatbot/target/
 chatbot/.idea/
 TelegramBot/target/
 TelegramBot/.idea/
+*.iml
