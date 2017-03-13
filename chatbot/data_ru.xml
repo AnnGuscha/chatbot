@@ -16,12 +16,12 @@
             <keyword target="45">фильм</keyword>
             <keyword target="45">мультфильм</keyword>
 			<keyword target="46">администрация</keyword>
-			<keyword target="47">хороший.*университет</keyword>
-            <keyword target="47">лучший.*университет</keyword>
+			<keyword target="47">хороший университет</keyword>
+            <keyword target="47">лучший университет</keyword>
             <keyword target="47">университет</keyword>
             <keyword target="47">институт</keyword>
-			<keyword target="48">best.*university</keyword>
-            <keyword target="48">good.*university</keyword>
+			<keyword target="48">best university</keyword>
+            <keyword target="48">good university</keyword>
             <keyword target="48">university</keyword>
 			<keyword target="16" variable="name" points="2">.*name is ([a-zA-z]+).*</keyword>
             <keyword target="16" variable="name">([a-zA-Z ]+)</keyword>
@@ -186,7 +186,7 @@
     </State>	
 	
 	<State id="51">
-        <message>В Гомеле есть много красивейших парков: Центральный, Фестивальный, Любенский, Молодёжный.
+        <message>В Гомеле есть много красивейших парков: {parks.names}.
 Какое место тебе интерестно?		
 		</message>
         <keywords>
@@ -258,8 +258,7 @@
     </State>	
 	
 	<State id="58">
-        <message>аттракционы работают с 11.00 - 20.00
-		кассы работают с 10.50 - 19.50
+        <message>{park.центральный.worktime}
 		</message>
         <keywords>
 			<keyword target="52">*</keyword>

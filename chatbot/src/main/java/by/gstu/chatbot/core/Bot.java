@@ -3,6 +3,7 @@ package by.gstu.chatbot.core;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 public class Bot {
     String name = "Bot";
@@ -77,6 +78,18 @@ public class Bot {
                 }
             }
         }
+        if(isNeedFillFromDB(response)) {
+            response = fillFromDB(response);
+        }
+        return response;
+    }
+
+    private boolean isNeedFillFromDB(final String response) {
+        final Pattern pattern = Pattern.compile("\\{.*\\}");
+        return pattern.matcher(response).matches();
+    }
+    private String fillFromDB(final String response) {
+        final Pattern pattern = Pattern.compile("\\{.*\\}");
         return response;
     }
 
