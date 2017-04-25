@@ -1,0 +1,45 @@
+<?xml  version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns="http://www.springframework.org/schema/beans"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- Root Context: определяет ресурсы, доступные всему приложению, всем сервлетам -->
+
+	<!-- Включаем опцию использования конфигурационных аннотаций (@Annotation-based configuration)-->
+	<context:annotation-config />
+
+	<!-- Определяем папки, в которых будем автоматически искать бины-компоненты (@Component, @Service)  -->
+	<context:component-scan base-package="by.gstu.bot.learning.dao" />
+	<context:component-scan base-package="by.gstu.bot.learning.service" />
+	<context:component-scan base-package="by.gstu.bot.learning.util"/>
+
+	<!-- Файл с настройками ресурсов для работы с данными (Data Access Resources) -->
+	<import resource="data.xml" />
+
+	<!-- Файл с настройками безопасности -->
+	<import resource="security.xml" />
+
+
+	<bean id="localeChangeInterceptor"
+		  class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+		<property name="paramName" value="lang"/>
+	</bean>
+
+	<bean id="localeResolver"
+		  class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
+		<property name="defaultLocale" value="en"/>
+	</bean>
+
+	<bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping">
+		<property name="interceptors">
+			<list>
+				<ref bean="localeChangeInterceptor"/>
+			</list>
+		</property>
+	</bean>
+
+
+</beans>
