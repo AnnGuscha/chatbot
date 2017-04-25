@@ -15,6 +15,7 @@ import java.io.*;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -79,7 +80,7 @@ public class GomelGuideService {
             if (entity != null) {
                 InputStream instream = entity.getContent();
                 try {
-                    return EntityUtils.toString(entity);
+                    return URLDecoder.decode(EntityUtils.toString(entity), "UTF-8");
                 } finally {
                     instream.close();
                 }
