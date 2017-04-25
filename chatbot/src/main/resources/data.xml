@@ -1,45 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Config>
     <State id="0">
-		<message>Привет, я Bot. Я могу тебе помочь?</message>
-        <keywords>       
-			<keyword target="51">парк</keyword>
-			<keyword target="51">сквер</keyword>
-			<keyword target="51">отдых</keyword>
-			<keyword target="51">отдохнуть</keyword>
-			<keyword target="51">природ</keyword>
-			<keyword target="51">природа</keyword>
-			<keyword target="51">гулять</keyword>
-            <keyword target="45">кинотеатр</keyword>
-            <keyword target="45">кино</keyword>
-            <keyword target="45">мультик</keyword>
-            <keyword target="45">фильм</keyword>
-            <keyword target="45">мультфильм</keyword>
-			<keyword target="46">администрация</keyword>
-			<keyword target="47">хороший.*университет</keyword>
-            <keyword target="47">лучший.*университет</keyword>
-            <keyword target="47">университет</keyword>
-            <keyword target="47">институт</keyword>
-			<keyword target="48">best.*university</keyword>
-            <keyword target="48">good.*university</keyword>
-            <keyword target="48">university</keyword>
-			<keyword target="16" variable="name" points="2">.*name is ([a-zA-z]+).*</keyword>
+        <message>Hello, My name is Bot, what is your name?</message>
+        <keywords>
+            <keyword target="16" variable="name" points="2">.*name is ([a-zA-z]+).*</keyword>
             <keyword target="16" variable="name">([a-zA-Z ]+)</keyword>
         </keywords>
     </State>
 
     <State id="1">
-	<message>Hello, I'm Bot. How I can help you?</message>
-        <message>How I can help you?</message>
+        <message>What do you want to talk about?</message>
         <message>What else?</message>
         <message>Tell me more...</message>
-        <message>What is it that you really want to know? </message>
+        <message>What is it that you really want to know?</message>
         <keyword className="Weather" arg="today">weather</keyword>
         <keyword className="Weather" arg="tomorrow">tomorrow weather</keyword>
         <keyword className="Weather" arg="dayaftertomorrow">day after tomorrow</keyword>
         <keyword target="15" variable="status">.*I am ([a-zA-Z]+).*</keyword>
         <keyword target="16" variable="name">.*my name is ([a-zA-z]+).*</keyword>
         <keyword variable="subject" target="27">([a-zA-z]+)</keyword>
+    </State>
+
+    <State id="11">
+        <message>That's great, why you are happy?</message>
+        <keywords>
+            <keyword target="21">lottery</keyword>
+            <keyword target="23">finish assignment</keyword>
+            <keyword target="32">holiday</keyword>
+            <keyword target="22">*</keyword>
+        </keywords>
+    </State>
+
+    <State id="1">
+        <message>Сообщение</message>
+        <keywords>
+            <keyword target="1">Ключевое слово 1</keyword>
+            ...
+            <keyword target="N">Ключевое слово N</keyword>
+        </keywords>
     </State>
 
     <State id="13">
@@ -142,130 +140,7 @@
         <message>What do you mean?</message>
         <keyword target="43">*</keyword>
     </State>
-	
-	<State id="45">
-        <message>Посмотри вот здесь - http://www.ilook.by/ru-billboard.html. Мне кажется это хороший ресурс.</message>
-        <keywords>
-			<keyword target="50">*</keyword>
-        </keywords>
-    </State>
-	
-    <State id="46">
-        <message>Мне кажется ты здесь сможешь найти то что тебе нужно http://www.sovadmin.gov.by/</message>
-		<keywords>
-			<keyword target="50">*</keyword>
-        </keywords>
-	</State>
-	
-	<State id="47">
-        <message>Я думаю, ГГТУ самый лучший университет.</message>
-        <keywords>
-			<keyword target="50">*</keyword>
-        </keywords>
-    </State>
-	
-	    <State id="48">
-        <message>Gomel State Technical University is really the best university.</message>
-        <keywords>
-			<keyword target="50">*</keyword>
-        </keywords>
-    </State>
-	
-	<State id="49">
-        <message>А какой по твоему мнению лучший?</message>
-        <keywords>
-			<keyword target="50">*</keyword>
-        </keywords>
-    </State>
-	
-	<State id="50">
-        <message>Может я еще чем-то могу тебе помочь?</message>
-        <keywords>
-			<keyword target="">*</keyword>
-        </keywords>
-    </State>	
-	
-	<State id="51">
-        <message>В Гомеле есть много красивейших парков: Центральный, Фестивальный, Любенский, Молодёжный.
-Какое место тебе интерестно?		
-		</message>
-        <keywords>
-			<keyword target="52">центр</keyword>
-			<keyword target="53">фест</keyword>
-			<keyword target="54">любл</keyword>
-			<keyword target="55">молод</keyword>
-			<keyword target="56">*</keyword>
-        </keywords>
-    </State>
-	
-	<State id="52">
-        <message>
-			Это один из красивейших пейзажных парков - дворцово-парковый комплекс в Гомеле является одной из главных достопримечательностей и настоящей жемчужиной белорусской земли. Расположен на обрывистом берегу реки Сож и оврага с ручьем Гомий.
-		</message>
-        <keywords>
-			<keyword target="57">проезд</keyword>
-			<keyword target="57">как</keyword>
-			<keyword target="58">время</keyword>
-			<keyword target="58">когда</keyword>
-			<keyword target="50">*</keyword>
-        </keywords>
-    </State>
-	
-	<State id="53">
-        <message>
-			парк Фестивальный
-		</message>
-        <keywords>
-			<keyword target="50">*</keyword>
-        </keywords>
-    </State>
-	
-	<State id="54">
-        <message>
-			парк Любенский 
-		</message>
-        <keywords>
-			<keyword target="50">*</keyword>
-        </keywords>
-    </State>
-	
-	<State id="55">
-        <message>
-			парк Молодёжный 
-		</message>
-        <keywords>
-			<keyword target="50">*</keyword>
-        </keywords>
-    </State>
-	
-	<State id="56">
-        <message>
-			Больше информации о парках можешь найти здесь - http://gomelstreet.info/parki-i-skvery-gomelya
-		</message>
-        <keywords>
-			<keyword target="50">*</keyword>
-        </keywords>
-    </State>
-	
-	<State id="57">
-        <message>
-			общественным транспортом: автобусы № 1, 4, 11, 12, 20, 30; троллейбусы № 1, 5, 7, 10, 15, 16, 22 до остановки «Площадь Ленина». От ж/д вокзала до Дворцово-паркового ансамбля всего две остановки можно и пешком по проспекту Ленина.
-			автомобилем: координаты GPS: 52.422133,31.016917
-		</message>
-        <keywords>
-			<keyword target="52">*</keyword>
-        </keywords>
-    </State>	
-	
-	<State id="58">
-        <message>аттракционы работают с 11.00 - 20.00
-		кассы работают с 10.50 - 19.50
-		</message>
-        <keywords>
-			<keyword target="52">*</keyword>
-        </keywords>
-    </State>
-    
+
     <InvalidMessages>
         <message>Huh, I didn't understand?</message>
         <message>Sorry, I am slow!</message>
